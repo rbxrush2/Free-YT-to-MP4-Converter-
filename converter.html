@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convert YouTube → MP4</title>
+  <style>
+    body {
+      background: #060714;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .box {
+      background: #111324;
+      padding: 20px 24px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    p {
+      opacity: 0.8;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff3b3b, #ff9b3b);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255,80,80,0.4);
+      transition: 0.15s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    #result {
+      margin-top: 24px;
+      font-size: 0.95rem;
+    }
+
+    .loading {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>YouTube → MP4</h1>
+    <p>Paste your YouTube URL below:</p>
+
+    <input id="yturl" type="text" placeholder="https://youtube.com/watch?v=xxxx" />
+
+    <button onclick="startConvert()">Convert</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function startConvert() {
+      const url = document.getElementById("yturl").value.trim();
+      const resultBox = document.getElementById("result");
+
+      if (!url) {
+        resultBox.innerHTML = "<p style='color:#ff6b6b'>Please enter a valid YouTube URL.</p>";
+        return;
+      }
+
+      // TEMP while we build backend:
+      resultBox.innerHTML = "<p class='loading'>Checking video… (Backend setup coming next)</p>";
+    }
+  </script>
+</body>
+</html>
