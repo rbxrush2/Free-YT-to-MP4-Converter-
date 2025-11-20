@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YT to MP4 Converter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #060714;
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #222642, #050511);
+      border-radius: 18px;
+      padding: 24px 20px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .logo span {
+      color: #ff3b3b;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+      );
+      margin: 18px 0;
+    }
+
+    .info {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, #ff3b3b, #ff9b3b);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(255, 83, 83, 0.4);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(255, 83, 83, 0.5);
+      opacity: 0.9;
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+      opacity: 0.8;
+    }
+
+    .tiny {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      YT<span>2</span>MP4
+    </div>
+    <p class="tagline">Fast, simple YouTube to MP4 conversion (after a quick ad 👀).</p>
+
+    <div class="divider"></div>
+
+    <p class="info">
+      Click the button below to continue.<br />
+      You’ll see a short ad page first, then you’ll be redirected to the converter.
+    </p>
+
+    <button class="btn" onclick="goToAd()">
+      Convert Next ▶
+    </button>
+
+    <p class="tiny">
+      You’ll be redirected through an external page (Adfoc) to support this site.
+    </p>
+  </div>
+
+  <script>
+    function goToAd() {
+      // 1) Your final converter page (change this later)
+      const converterUrl = "https://yourusername.github.io/converter.html";
+
+      // 2) Your Adfoc wrapped link
+      // In Adfoc you normally set something like:
+      // https://adfoc.us/serve/?id=YOUR_ID&url=REAL_URL
+      // For now just put your own Adfoc link:
+      const adfocLink = "https://adfoc.us/YOUR_ADFOC_LINK_HERE";
+
+      // Redirect to Adfoc (which should then redirect to converterUrl)
+      window.location.href = adfocLink;
+    }
+  </script>
+</body>
+</html>
