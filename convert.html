@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convert YouTube → MP4</title>
+  <title>YouTube → MP4 Converter</title>
+
   <style>
     body {
       background: #060714;
@@ -13,18 +14,19 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
+      margin: 0;
+      padding: 0 16px;
     }
 
     .box {
       background: #111324;
-      padding: 20px 24px;
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      padding: 26px 24px;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
       width: 100%;
-      max-width: 450px;
+      max-width: 420px;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     h1 {
@@ -41,25 +43,28 @@
 
     input {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 14px 16px;
+      border-radius: 12px;
       border: none;
       outline: none;
       font-size: 0.95rem;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      background: #fff;
+      color: #000;
+      box-sizing: border-box;
     }
 
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       background: linear-gradient(135deg, #ff3b3b, #ff9b3b);
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(255,80,80,0.4);
+      box-shadow: 0 10px 25px rgba(255, 80, 80, 0.4);
       transition: 0.15s;
     }
 
@@ -71,10 +76,11 @@
     #result {
       margin-top: 24px;
       font-size: 0.95rem;
+      min-height: 20px;
     }
 
     .loading {
-      opacity: 0.7;
+      opacity: 0.75;
     }
   </style>
 </head>
@@ -82,7 +88,7 @@
 <body>
   <div class="box">
     <h1>YouTube → MP4</h1>
-    <p>Paste your YouTube URL below:</p>
+    <p>Paste your YouTube video link below:</p>
 
     <input id="yturl" type="text" placeholder="https://youtube.com/watch?v=xxxx" />
 
@@ -97,13 +103,16 @@
       const resultBox = document.getElementById("result");
 
       if (!url) {
-        resultBox.innerHTML = "<p style='color:#ff6b6b'>Please enter a valid YouTube URL.</p>";
+        resultBox.innerHTML =
+          "<p style='color:#ff6b6b'>⚠️ Please enter a valid YouTube URL.</p>";
         return;
       }
 
-      // TEMP while we build backend:
-      resultBox.innerHTML = "<p class='loading'>Checking video… (Backend setup coming next)</p>";
+      // TEMP loading text until we add the API
+      resultBox.innerHTML =
+        "<p class='loading'>⏳ Checking video… (API connection coming next)</p>";
     }
   </script>
+
 </body>
 </html>
